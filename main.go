@@ -9,7 +9,7 @@ import (
 
 func Index(response http.ResponseWriter, request *http.Request, _ httprouter.Params) {
 	response.Header().Add("Content-Type", "application/json")
-	fmt.Fprint(response, "{\"name\":\"tom\"}")
+	fmt.Fprint(response, `{"name":"tom"}`)
 }
 
 func main() {
