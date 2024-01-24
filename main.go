@@ -12,8 +12,12 @@ func Index(response http.ResponseWriter, request *http.Request, _ httprouter.Par
 }
 
 func main() {
-	router := httprouter.New()
-	router.GET("/", Index)
+	// router := httprouter.New()
+	// router.GET("/", Index)
 
-	http.ListenAndServe(":8080", router)
+	http.HandleFunc("/http", func(response http.ResponseWriter, request *http.Request) {
+		response.Header().Add("Content-Type", "application/json")
+		response.Write([]byte(`{"name":"http"}`))
+	})
+	http.ListenAndServe(":8080", nil)
 }
