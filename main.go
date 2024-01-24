@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -9,7 +8,7 @@ import (
 
 func Index(response http.ResponseWriter, request *http.Request, _ httprouter.Params) {
 	response.Header().Add("Content-Type", "application/json")
-	fmt.Fprint(response, `{"name":"tom"}`)
+	response.Write([]byte(`{"name":"tom"}`))
 }
 
 func main() {
